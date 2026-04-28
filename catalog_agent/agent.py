@@ -1,5 +1,6 @@
 from google.adk.agents import Agent
 from google.adk.tools import ToolContext
+from checkout_agent.agent import checkout_agent
 
 def save_cart(tool_context: ToolContext,
               category:str,
@@ -40,5 +41,6 @@ catalog_agent = Agent(
     5. use simple bullet points where helpful.
   
     """,
-    tools=[save_cart]
+    tools=[save_cart],
+    sub_agents=[checkout_agent]
 )
